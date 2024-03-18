@@ -1,0 +1,12 @@
+body {
+    background-color: skyblue; /* Set background color of the body to sky blue */
+}
+
+h1 {
+    background-color: green; /* Set background color of h1 elements to green */
+    color: orange; /* Set text color of h1 elements to orange */
+}
+
+button {
+    background-color: grey; /* Set background color of buttons to grey */
+}

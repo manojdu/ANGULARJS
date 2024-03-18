@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> <!-- Include AngularJS library -->
+</head>
+<body>
+    <p>Try to change the names</p>
+
+    <!-- AngularJS app and controller -->
+    <div ng-app="myApp" ng-controller="myCtrl">
+        First Name: <input type="text" ng-model="firstName"><br> <!-- Input field for first name -->
+        Last Name: <input type="text" ng-model="lastName"><br> <!-- Input field for last name -->
+        <br>
+        Full Name: {{firstName + " " + lastName}} <!-- Display full name -->
+    </div>
+
+    <script>
+        var app = angular.module('myApp',[]); // Define AngularJS module named 'myApp'
+        app.controller('myCtrl',function($scope){ // Define controller named 'myCtrl' and inject $scope
+            $scope.firstName="Sharath"; // Initialize first name
+            $scope.lastName=" Kumar T R"; // Initialize last name
+        });
+    </script>
+</body>
+</html>

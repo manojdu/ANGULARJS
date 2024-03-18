@@ -1,0 +1,40 @@
+body {
+    margin: 40px 0; /* Set top and bottom margin */
+}
+
+.form-horizontal {
+    max-width: 600px; /* Set maximum width for the form */
+    margin: auto; /* Center the form horizontally */
+    border: 1px solid #eee; /* Add border */
+    
+    &:after {
+        content: ""; /* Clearfix */
+        display: table;
+        clear: both;
+    }
+
+    .form-heading {
+        background: #00B16A; /* Set background color for form heading */
+        padding: 10px 15px; /* Add padding */
+        
+        h2 {
+            color: #fff; /* Set text color for heading */
+            margin: 0; /* Remove margin */
+        }
+    }
+
+    .form-group {
+        max-width: 100%; /* Set maximum width */
+        margin: auto; /* Center the form group horizontally */
+        margin: 15px; /* Add margin */
+    }
+
+    .form-control&:focus {
+        box-shadow: none; /* Remove focus box shadow */
+    }
+}
+
+.btn {
+    margin-right: 15px; /* Set right margin for buttons */
+    margin-bottom: 15px; /* Set bottom margin for buttons */
+}

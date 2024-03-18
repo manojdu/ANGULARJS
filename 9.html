@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>AngularJS Employee Search</title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> <!-- Include AngularJS library -->
+</head>
+<body ng-app="employeeApp" ng-controller="employeeController" style="background-color: Lightgrey;"> <!-- Set AngularJS app and controller, set background color -->
+    <h1 style="background-color: red; text-align: center;">Employee Details</h1> <!-- Heading for employee details -->
+
+    <!-- Search by Name -->
+    <div>
+        <label>Search by Name:</label>
+        <input type="text" id="searchName" ng-model="searchName" /> <!-- Input field to search by name -->
+    </div>
+    <br />
+
+    <!-- Search by Salary -->
+    <div>
+        <label>Search by Salary:</label>
+        <input type="number" id="searchSalary" ng-model="searchSalary" /> <!-- Input field to search by salary -->
+    </div>
+
+    <!-- Display Employees -->
+    <ul>
+        <li ng-repeat="employee in employees | filter:{name: searchName, salary: searchSalary}"> <!-- Loop through employees and filter by name and salary -->
+            {{employee.name}} - Salary: ${{employee.salary | number:2}} <!-- Display employee name and salary -->
+        </li>
+    </ul>
+
+    <script src="9.js"></script> <!-- Include JavaScript file -->
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="myApp"> 
+<head>
+<meta charset="UTF-8">
+<title>AngularJS Calculator</title> <!-- Title of the page -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> <!-- Include AngularJS library -->
+<script src="4.js"></script> <!-- Include JavaScript file -->
+<link rel="stylesheet" type="text/css" href="4.css"> <!-- Include CSS file -->
+</head>
+<body>
+<div ng-controller="CalculatorController"> <!-- Controller for the calculator -->
+<h1>AngularJS Factorial and Square Calculator</h1> <!-- Heading -->
+<label for="numberInput">Enter a number:</label> <!-- Label for number input -->
+<input type="number" id="numberInput" ng-model="inputNumber" /><br><br> <!-- Input field for number -->
+<button ng-click="calculateFactorial()">Calculate Factorial</button> <!-- Button to calculate factorial -->
+<button ng-click="calculateSquare()">Calculate Square</button> <!-- Button to calculate square -->
+<br>
+<p ng-show="factorialResult!==null"></p>Factorial: {{ factorialResult }}</p> <!-- Display factorial result -->
+<p ng-show="squareResult!==null"></p>Square: {{ squareResult }}</p> <!-- Display square result -->
+</div>
+</body>
+</html>

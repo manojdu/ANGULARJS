@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS CRUD App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> <!-- Include AngularJS library -->
+</head>
+<body ng-app="crudApp" ng-controller="crudController" style="background-color:lightblue;"> <!-- Set AngularJS app and controller, set background color -->
+    <h1 style="background-color: red; text-align: center;">User Management</h1> <!-- Heading for user management -->
+
+    <div>
+        <label>Name</label> <!-- Label for name input -->
+        <input type="text" id="userName" ng-model="newUser.name" /> <!-- Input field for name -->
+        <label for="userEmail">Email:</label> <!-- Label for email input -->
+        <input type="email" id="userEmail" ng-model="newUser.email" /> <!-- Input field for email -->
+        <button ng-click="addUser()">Add User</button> <!-- Button to add user -->
+    </div> 
+
+    <ul>
+        <li ng-repeat="user in users"> <!-- Loop through users -->
+            {{ user.name }} ({{ user.email }}) <!-- Display user's name and email -->
+            <button ng-click="editUser(user)">Edit</button> <!-- Button to edit user -->
+            <button ng-click="deleteUser(user)">Delete</button> <!-- Button to delete user -->
+        </li>
+    </ul>
+
+    <div ng-show="editingUser"> <!-- Show this section only if editingUser is not null -->
+        <h2>Edit User</h2>
+        <label for="editUserName">Name:</label>
+        <input type="text" id="editUserName" ng-model="editingUser.name" /> <!-- Input field for editing user's name -->
+        <label for="editUserEmail">Email:</label>
+        <input type="email" id="editUserEmail" ng-model="editingUser.email" /> <!-- Input field for editing user's email -->
+        <button ng-click="updateUser()">Update User</button> <!-- Button to update user -->
+        <button ng-click="cancelEdit()">Cancel</button> <!-- Button to cancel edit -->
+    </div>
+
+    <script src="7.js"></script> <!-- Include JavaScript file -->
+</body>
+</html>

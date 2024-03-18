@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Include AngularJS library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    
+    <!-- Define some CSS styles -->
+    <style>
+        span.close-btn { 
+            cursor: pointer; 
+            margin: 5px; 
+            color: red;
+        }
+    </style>
+</head>
+<body style="background-color: yellow;">
+
+<!-- Heading for the shopping list -->
+<h3>My shopping List</h3>
+
+<!-- AngularJS app and controller -->
+<div ng-app="myshoppinglist" ng-controller="myctrl">
+    <!-- List of products -->
+    <ul>
+        <li ng-repeat="x in products">
+            <sub>{{x}}</sub>
+            <!-- Close button to remove an item -->
+            <span class="close-btn" ng-click="removeItem($index)">x</span>
+        </li>
+    </ul>
+    
+    <!-- Input field to add items -->
+    <input ng-model="addMe" placeholder="Add items to the cart"> 
+    <!-- Button to add items -->
+    <button ng-click="addItem()" style="background-color: darkgray;">Add</button>
+    <!-- Error message if item already exists -->
+    <p style="color: red;">{{errortext}}</p> 
+</div>
+
+<!-- JavaScript code for AngularJS -->
+<script>
+    var app = angular.module('myshoppinglist',[]); // Define AngularJS module named 'myshoppinglist'
+    app.controller('myctrl',function($scope){ // Define controller named 'myctrl' and inject $scope
+        $scope.products=["milk","bread","cheese"]; // Initialize products array
+        
+        // Function to add an item
+        $scope.addItem = function(){
+            if(!$scope.addMe){ // Check if input is empty
+                return;
+            }
+            if($scope.products.indexOf($scope.addMe) === -1){ // Check if item already exists
+                $scope.products.push($scope.addMe); // Add item to products array
+            } else {
+                $scope.errortext="This item already exists"; // Set error message
+            }
+            $scope.addMe = ""; // Clear input after adding
+        }
+        
+        // Function to remove an item
+        $scope.removeItem = function(x){
+            $scope.errortext = ""; // Clear error message
+            $scope.products.splice(x,1); // Remove item from products array
+        }
+    });
+</script>
+
+<!-- Additional information for the user -->
+<p>Click the little x to remove an item from the shopping list.</p> 
+<p>Try to add the same item twice, and you will get an error message.</p> 
+
+</body>
+</html>

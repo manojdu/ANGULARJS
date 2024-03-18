@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="myApp"> <!-- Declare AngularJS app -->
+<head>
+<title>Number Calculator with AngularJS</title> <!-- Title of the page -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> <!-- Include AngularJS library -->
+</head>
+<body style="background-color:orangered;"> <!-- Styling for the body -->
+<div ng-controller="CalculatorCtrl"> <!-- Controller for the calculator -->
+<h1 style="color:yellow;text-align: center;">Simple AngularJS Calculator Application</h1> <!-- Heading -->
+<p>Enter number1:</p>
+<input type="number" ng-model="number1"> <!-- Input field for the first number -->
+<p>Enter number2:</p>
+<input type="number" ng-model="number2"> <!-- Input field for the second number -->
+<!-- Arithmetic operations -->
+<p>Result: {{number1}} + {{number2}} = {{number1 + number2}}</p>
+<p>Result: {{number1}} - {{number2}} = {{number1 - number2}}</p>
+<p>Result: {{number1}} * {{number2}} = {{number1 * number2}}</p>
+<p>Result: {{number1}} / {{number2}} = {{number1 / number2}}</p>
+</div>
+<script>
+var app = angular.module('myApp', []); // Define AngularJS module
+app.controller('CalculatorCtrl', function($scope) { // Define controller
+    $scope.number1 = 0; // Initialize number1 to 0
+    $scope.number2 = 0; // Initialize number2 to 0
+});
+</script>
+</body>
+</html>

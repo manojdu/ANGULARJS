@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS Item collection App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> <!-- Include AngularJS library -->
+</head>
+<body ng-app="itemApp" ng-controller="itemController" style="background-color: lightblue;"> <!-- Set AngularJS app and controller, set background color -->
+    <h1 style="background-color: red; text-align: center;">Item collection</h1> <!-- Heading for item collection -->
+
+    <!-- Form to add new item -->
+    <div>
+        <label for="newItem">New Item:</label>
+        <input type="text" id="newItem" ng-model="newItem"> <!-- Input field for new item -->
+        <button ng-click="addItem()" style="color: red;">Add Item</button> <!-- Button to add item -->
+    </div>
+
+    <!-- List of items -->
+    <ul>
+        <li ng-repeat="item in items"> <!-- Loop through items -->
+            {{item}}
+            <button ng-click="removeItem($index)" style="color: red;">Remove</button> <!-- Button to remove item -->
+        </li>
+    </ul>
+
+    <p style="color:red;">{{errortext}}</p> <!-- Error message -->
+    <p>Total Items:{{items.length}}</p> <!-- Display total number of items -->
+
+    <script src="10.js"></script> <!-- Include JavaScript file -->
+</body>
+</html>

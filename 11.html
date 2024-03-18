@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>Student Details Converter</title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> <!-- Include AngularJS library -->
+</head>
+<body ng-app="app" ng-controller="ctrl" style="background-color:skyblue"> <!-- Set AngularJS app and controller, set background color -->
+    <h1 style="background-color:yellow; text-align:center;">Student Details</h1> <!-- Heading for student details -->
+
+    <!-- Display student details -->
+    <div>
+        <ul>
+            <li ng-repeat="student in students">
+                {{ student.name | uppercase }} - {{ student.branch | uppercase }} <!-- Display student name and branch in uppercase -->
+            </li> 
+        </ul>
+    </div> 
+
+    <script>
+        var app = angular.module('app', []); // Define AngularJS module named 'app'
+        app.controller('ctrl', function ($scope) { // Define controller named 'ctrl' and inject $scope
+            $scope.students = [ // Array of student objects with name and branch
+                { name: 'Sharath', branch: 'Computer Science' }, 
+                { name: 'Praveen', branch: 'Information Science' }, 
+                { name: 'Sumanth', branch: 'Cyber Security' },
+                { name: 'Shayan', branch: 'Artificial Intelligence' } 
+            ];
+        }); 
+    </script>
+</body> 
+</html>
